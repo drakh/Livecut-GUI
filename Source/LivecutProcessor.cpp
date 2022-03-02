@@ -251,7 +251,7 @@ const String LivecutAudioProcessor::getParameterName (int index)
   if(params.count(index))
     return String(params[index]->GetName().c_str());	
   
-  return String::empty;
+  return String();
 }
 
 const String LivecutAudioProcessor::getParameterText (int index)
@@ -259,7 +259,7 @@ const String LivecutAudioProcessor::getParameterText (int index)
   if(params.count(index))
     return String(params[index]->GetDisplay().c_str());	
   
-  return String::empty;
+  return String();
 }
 
 const String LivecutAudioProcessor::getInputChannelName (int channelIndex) const
@@ -321,7 +321,7 @@ void LivecutAudioProcessor::setCurrentProgram (int index)
 
 const String LivecutAudioProcessor::getProgramName (int index)
 {
-  return String::empty;
+  return String();
 }
 
 void LivecutAudioProcessor::changeProgramName (int index, const String& newName)
@@ -349,8 +349,8 @@ void LivecutAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer&
 {
   // This is the place where you'd normally do the guts of your plugin's
   // audio processing...
-  Process(buffer.getArrayOfChannels(), 
-          buffer.getArrayOfChannels(), 
+  Process(buffer.getArrayOfWritePointers(), 
+          buffer.getArrayOfWritePointers(), 
           buffer.getNumSamples());
   
   // In case we have more outputs than inputs, we'll clear any output
