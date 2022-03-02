@@ -96,7 +96,7 @@ static void createRoundedPath (Path& p,
 //------------------------------------------------------------------------------
 LivecutLookAndFeel::LivecutLookAndFeel()
 {
-  static const int standardColours[] =
+  static const unsigned int standardColours[] =
   {
     PopupMenu::highlightedBackgroundColourId,   Colours::royalblue.getARGB(),
     PopupMenu::highlightedTextColourId,         0xffffffff,
