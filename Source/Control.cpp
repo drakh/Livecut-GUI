@@ -49,7 +49,7 @@ void Control::audioProcessorParameterChanged (AudioProcessor* processor,
   triggerAsyncUpdate();
 }
 
-void Control::audioProcessorChanged (AudioProcessor* processor)
+void Control::audioProcessorChanged (AudioProcessor* processor, const ChangeDetails &details)
 {
   triggerAsyncUpdate();
 }
