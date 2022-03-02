@@ -9,3 +9,9 @@ Livecut is only a small subset of what is possible with BBCut, but as it is avai
 
 It is a live beat-slicer but instead of manipulating equal chunks of audio like most beatslicer do, it works on the notion of audio *cuts* whose length and number of repetition depends on the context and the cutting procedure. 
 *Cuts* are organized in *blocks* which then form a *phrase*. see Image below. And each phrase can be ended by a *roll* or *fill*.
+-------
+This is a fork of Livecut with a few updates to the code so that it will build with JUCE 6.1.5.
+
+The plugin builds and works with JUCE 6.1.5, but the GUI is not complete and some controls are mssing. However, if your plugin host or DAW provides generic controls, you can access all the controls and parameters that way.
+
+This repository is kept for reference only and won't be updated.
