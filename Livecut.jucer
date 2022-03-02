@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="hZgYi6" name="Livecut" projectType="audioplug" version="1.0.0"
-              bundleIdentifier="com.smartelectronix.mdsp.Livecut" buildVST="0"
+              bundleIdentifier="com.smartelectronix.mdsp.Livecut" buildVST="1"
               buildAU="0" pluginName="Livecut" pluginDesc="Livecut" pluginManufacturer="Mdsp @ Smartelectronix"
               pluginManufacturerCode="MDSP" pluginCode="lvct" pluginChannelConfigs="{2, 2}"
               pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
@@ -9,7 +9,7 @@
               pluginAUExportPrefix="LivecutAU" pluginAUViewClass="LivecutAU_V1"
               pluginRTASCategory="" aaxIdentifier="com.yourcompany.Livecut"
               pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="3.1.0"
-              companyName="Smarteletronix" buildVST3="1" buildRTAS="0" buildAAX="0"
+              companyName="Smarteletronix" buildVST3="0" buildRTAS="0" buildAAX="0"
               includeBinaryInAppConfig="1" companyWebsite="http://mdsp.smartelectronix.com/">
   <MAINGROUP id="PNF3Wt" name="Livecut">
     <GROUP id="{07E24D07-079A-4725-9428-F97F07068D56}" name="Source">
