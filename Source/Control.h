@@ -37,7 +37,7 @@ private:
   virtual void audioProcessorParameterChanged (AudioProcessor* processor,
                                                int parameterIndex,
                                                float newValue);
-  virtual void audioProcessorChanged (AudioProcessor* processor);
+  virtual void audioProcessorChanged (AudioProcessor* processor, const ChangeDetails &details);
   virtual void handleAsyncUpdate();
   
 protected:
