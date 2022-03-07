@@ -12,6 +12,6 @@ It is a live beat-slicer but instead of manipulating equal chunks of audio like 
 -------
 This is a fork of Livecut with a few updates to the code so that it will build with JUCE 6.1.5.
 
-The plugin builds and works with JUCE 6.1.5, but the GUI is not complete and some controls are missing. However, if your plugin host or DAW provides generic controls, you can access all the controls and parameters that way.
+The plugin builds with JUCE 6.1.5, but the GUI is not complete and some controls are missing. However, if your plugin host or DAW provides generic controls, you can access all the controls and parameters that way.With some export formats, plugin parameters may not be saved by plugin hosts.
 
 This repository is kept for reference only and won't be updated.
