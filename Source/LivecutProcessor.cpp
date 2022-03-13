@@ -451,6 +451,7 @@ AudioProcessorEditor* LivecutAudioProcessor::createEditor()
    */
   
   LivecutAudioProcessorEditor *pEditor = new LivecutAudioProcessorEditor (this);
+/*
   pEditor->addKnob(minphraselength.GetTag(), 2, 0);
   pEditor->addKnob(maxphraselength.GetTag(), 2, 2);
   pEditor->addKnob(subdiv.GetTag(), 2, 4);
@@ -485,7 +486,53 @@ AudioProcessorEditor* LivecutAudioProcessor::createEditor()
   pEditor->addKnob(minfreq.GetTag(), 12, 12);
   pEditor->addKnob(maxfreq.GetTag(), 12, 14);
   pEditor->addKnob(crusherswitch.GetTag(), 16, 2);
+*/
+  pEditor->addIncDec(strategy.GetTag(), 2, 0, 3); // Note: this parameter has 3 values. To do: assign automatically
+  
+  pEditor->addSlider(minphraselength.GetTag(), 4, 0);
+  pEditor->addSlider(maxphraselength.GetTag(), 5, 0);
+  pEditor->addSlider(subdiv.GetTag(), 6, 0);
+  pEditor->addSlider(seed.GetTag(), 7, 0);
+  
+  pEditor->addSlider(mindetune.GetTag(), 9, 0);
+  pEditor->addSlider(maxdetune.GetTag(), 10, 0);
+  
+  pEditor->addSlider(dutycycle.GetTag(), 12, 0);
+  pEditor->addSlider(filldutycycle.GetTag(), 13, 0);
+  pEditor->addSlider(fade.GetTag(), 14, 0);
+  
+  pEditor->addSlider(minamp.GetTag(), 2, 9);
+  pEditor->addSlider(maxamp.GetTag(), 3, 9);
+  pEditor->addSlider(minpan.GetTag(), 4, 9);
+  pEditor->addSlider(maxpan.GetTag(), 5, 9);
+  
+  //pEditor->addButton(crusherswitch.GetTag(), 6, 12);
+  // Note: Button currently added in editor LivecutEditor.cpp
+  
+  pEditor->addSlider(minbits.GetTag(), 7, 9);
+  pEditor->addSlider(maxbits.GetTag(), 8, 9);
+  pEditor->addSlider(minfreq.GetTag(), 9, 9);
+  pEditor->addSlider(maxfreq.GetTag(), 10, 9);
+  
+  //pEditor->addButton(combswitch.GetTag(), 11, 12);
+  // Note: Button currently added in editor LivecutEditor.cpp
+  
+  pEditor->addIncDec(combtype.GetTag(), 12, 9, 2); // Note: this parameter has 2 values. To do: assign automatically
+  pEditor->addSlider(combfeedback.GetTag(), 13, 9);
+  pEditor->addSlider(combmindelay.GetTag(), 14, 9);
+  pEditor->addSlider(combmaxdelay.GetTag(), 15, 9);
 
+  pEditor->addSlider(maxrepeats.GetTag(), 2, 18);
+  pEditor->addSlider(minrepeats.GetTag(), 3, 18);
+  pEditor->addSlider(stutterchance.GetTag(), 4, 18);
+  pEditor->addSlider(stutterarea.GetTag(), 5, 18);
+  
+  pEditor->addSlider(straightchance.GetTag(), 7, 18);
+  pEditor->addSlider(regularchance.GetTag(), 8, 18);
+  pEditor->addSlider(ritardchance.GetTag(), 9, 18);
+  pEditor->addSlider(accel.GetTag(), 10, 18);
+  
+  pEditor->addSlider(activity.GetTag(), 12, 18);
   
   return pEditor;
 }
