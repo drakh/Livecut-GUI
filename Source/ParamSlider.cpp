@@ -26,7 +26,7 @@ ParamSlider::ParamSlider(AudioProcessor &effect, int paramId)
   setRange(0, 1);
   
   setTextBoxStyle(juce::Slider::NoTextBox, true, 0, 0);	
-  setSliderStyle(juce::Slider::LinearHorizontal);
+  setSliderStyle(juce::Slider::LinearBar);
 }
 
 ParamSlider::~ParamSlider()
