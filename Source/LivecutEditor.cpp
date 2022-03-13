@@ -199,7 +199,7 @@ void LivecutAudioProcessorEditor::paintOverChildren (Graphics& g)
 
 void LivecutAudioProcessorEditor::paint (Graphics& g)
 {
-  g.fillAll (Colours::lightgrey);
+  g.fillAll (Colours::white);
   
   /* // grid
   for(uint col=0; col<24; ++col)
