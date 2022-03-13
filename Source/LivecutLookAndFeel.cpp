@@ -109,17 +109,17 @@ LivecutLookAndFeel::LivecutLookAndFeel()
     ComboBox::textColourId,								0xffFFFFFF,
     ComboBox::arrowColourId,							Colours::lightgrey.getARGB(),
     
-    Label::textColourId,                  0xffFFFFFF,
+    Label::textColourId,                  Colours::black.getARGB(), //0xffFFFFFF,
     
     Slider::rotarySliderFillColourId,           Colours::darkgrey.getARGB(),
     Slider::rotarySliderOutlineColourId,        0xffB0D1F0,
     Slider::trackColourId, 0xff1E1E1E,
-    Slider::thumbColourId, Colours::lightgrey.getARGB(),
+    Slider::thumbColourId, 0xffF6B648, //Colours::lightgrey.getARGB(),
     
-    TextButton::buttonColourId,           0xff464646,
-    TextButton::buttonOnColourId,         Colours::royalblue.getARGB(),
-    TextButton::textColourOnId,						0xffFFFFFF,
-    TextButton::textColourOffId,					0xffFFFFFF,			
+    TextButton::buttonColourId,           0xffFFFFFF, //0xff464646,
+    TextButton::buttonOnColourId,         0xffF6B648, //Colours::royalblue.getARGB(),
+    TextButton::textColourOnId,						Colours::black.getARGB(), //0xffFFFFFF,
+    TextButton::textColourOffId,					Colours::black.getARGB(), //0xffFFFFFF,			
   };
   
   for (int i = 0; i < numElementsInArray (standardColours); i += 2)
