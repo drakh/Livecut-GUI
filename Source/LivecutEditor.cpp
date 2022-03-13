@@ -46,20 +46,20 @@ LivecutAudioProcessorEditor::LivecutAudioProcessorEditor (LivecutAudioProcessor*
     LookAndFeel::setDefaultLookAndFeel(&LivecutLookAndFeel::getInstance());
   }
   
-  setSize (720+10, 480+10);
+  setSize (790+10, 480+10);
    
-  /*
+ 
   {
     ParamButton *pParamButton = new ParamButton(*ownerFilter, 23);
-    pParamButton->setBounds(margin, toolbarHeight+margin, buttonWidth, buttonHeight);
+    pParamButton->setBounds(385, 195, buttonWidth, buttonHeight);
     addAndMakeVisible(pParamButton);
   }
   {
     ParamButton *pParamButton = new ParamButton(*ownerFilter, 28);
-    pParamButton->setBounds(margin+buttonWidth+margin, toolbarHeight+margin, buttonWidth, buttonHeight);
+    pParamButton->setBounds(385, 345, buttonWidth, buttonHeight);
     addAndMakeVisible(pParamButton);
   }
-  
+  /*
   for(int i=2; i<20; ++i)
   {
     ParamSlider *pParamSlider = new ParamSlider(*ownerFilter, i);
@@ -90,7 +90,8 @@ void LivecutAudioProcessorEditor::addSlider(int paramId,
                                             int col)
 {
   addControl(kParamName, paramId, row, col, 1, 3);
-  addControl(kParamSlider, paramId, row, col+3, 1, 5);
+  addControl(kParamSlider, paramId, row, col+2, 1, 4);
+  addControl(kParamValue, paramId, row, col+6, 1, 3);
 }
 
 void LivecutAudioProcessorEditor::addKnob(int paramId, 
@@ -116,6 +117,34 @@ void LivecutAudioProcessorEditor::addKnob(int paramId,
   pSlider->setSliderStyle(Slider::RotaryVerticalDrag);
   pSlider->setBounds(x, y+20, width, height-20);
   addAndMakeVisible(pSlider);
+}
+
+void LivecutAudioProcessorEditor::addIncDec(int paramId, 
+                                            int row, 
+                                            int col,
+                                            int incDecNumberOfValues)
+
+{
+  AudioProcessor &processor = *getAudioProcessor();
+  
+  int buttonsColSpan = 4;
+  int buttonsRowSpan = 1;
+  int buttonsX = 10+30*(col+2);
+  int buttonsY = 10+30*row;
+  int buttonsWidth = 20 + 30*(buttonsColSpan-1);
+  int buttonsHeight = 20 + 30*(buttonsRowSpan-1);
+  double interval = 1.0 / (incDecNumberOfValues - 1);
+  
+  addControl(kParamName, paramId, row, col, 1, 3);
+  
+  ParamSlider *pSlider = new ParamSlider(processor, paramId); 
+  pSlider->setSliderStyle(Slider::IncDecButtons);
+  pSlider->setRange(0, 1, interval);
+  pSlider->setBounds(buttonsX, buttonsY, buttonsWidth, buttonsHeight);
+  addAndMakeVisible(pSlider);
+  
+  addControl(kParamValue, paramId, row, col+6, 1, 3);
+  
 }
 
 void LivecutAudioProcessorEditor::addControl(int kind, 
@@ -161,18 +190,18 @@ void LivecutAudioProcessorEditor::paintOverChildren (Graphics& g)
 {  
 }
 
-static const char* sectionNames[] = 
-{
-  "Global", "Pitch", "Env", 
-  "CutProc11", "WarpCut", "SQPusher", 
-  "Amplifier", "Crusher", "Comb"
-};
+//static const char* sectionNames[] = 
+//{
+//  "Global", "Pitch", "Env", 
+//  "CutProc11", "WarpCut", "SQPusher", 
+//  "Amplifier", "Crusher", "Comb"
+//};
 
 void LivecutAudioProcessorEditor::paint (Graphics& g)
 {
   g.fillAll (Colours::lightgrey);
   
-  // grid
+  /* // grid
   for(uint col=0; col<24; ++col)
   {
     int x = 10+col*(20+10);
@@ -194,11 +223,12 @@ void LivecutAudioProcessorEditor::paint (Graphics& g)
     g.setColour(Colours::red.withAlpha(0.1f));
     g.fillRect(0, y, getWidth(), 20);
   }
-    
-  g.setColour(Colours::black);
+  */  
+  
+  g.setColour(Colours::darkgrey);
   g.setFont(juce::Font(20.0f, juce::Font::bold));
 
-  g.drawRect(0, 0, getWidth(), 30);
+  g.drawLine(0, 30, getWidth(), 30);
   g.drawFittedText ("Livecut",
                     10, 10, getWidth()-20, 20,
                     Justification::centredLeft, 1);      
@@ -208,21 +238,74 @@ void LivecutAudioProcessorEditor::paint (Graphics& g)
                     10, 10, getWidth()-20, 20,
                     Justification::centredRight, 1);      
   
-  for(uint row=0; row<3; ++row)
-  {
-    int y = 40+150*row;
-    int width = 240-10;
-    int height = 150-10;
-    for(uint col=0; col<3; ++col)
-    {
-      int x = 10 + 240*col;
-      g.drawRect(x, y, width, height);
+  g.setColour(Colour(0xffBA7500));
+  g.setFont(juce::Font(15.0f, juce::Font::bold));
+  g.drawFittedText ("CutProc",
+                    10, 50, getWidth()-20, 20,
+                    Justification::centredLeft, 1); 
   
-      String text(sectionNames[row*3+col]);
-      g.drawFittedText (text,
-                        x, y, width, 20,
-                        Justification::centred, 1);      
-    }
-  }
+  g.drawFittedText ("Global",
+                    10, 110, getWidth()-20, 20,
+                    Justification::centredLeft, 1); 
+                    
+  g.drawFittedText ("Pitch",
+                    10, 260, getWidth()-20, 20,
+                    Justification::centredLeft, 1);
+                    
+  g.drawFittedText ("Env",
+                    10, 350, getWidth()-20, 20,
+                    Justification::centredLeft, 1);
+                    
+  g.drawFittedText ("Amp",
+                    280, 50, getWidth()-20, 20,
+                    Justification::centredLeft, 1);
+                    
+  g.drawFittedText ("BitCrusher",
+                    280, 200, getWidth()-20, 20,
+                    Justification::centredLeft, 1);
+                    
+  g.drawFittedText ("Comb",
+                    280, 350, getWidth()-20, 20,
+                    Justification::centredLeft, 1);
+
+  g.drawFittedText ("CutProc11",
+                    550, 50, getWidth()-20, 20,
+                    Justification::centredLeft, 1);
+                    
+  g.drawFittedText ("WarpCut",
+                    550, 200, getWidth()-20, 20,
+                    Justification::centredLeft, 1);
+                    
+  g.drawFittedText ("SQPusher",
+                    550, 350, getWidth()-20, 20,
+                    Justification::centredLeft, 1);
+  
+  g.setColour(Colours::darkgrey);
+  g.setFont(juce::Font(14.0f, juce::Font::bold));
+  g.drawFittedText ("Original algorithms by Nick Collins\nhttp://www.cus.cam.ac.uk/~nc272/\nin BBCut library for Supercollider",
+                    550, 385, 220, 100,
+                    Justification::centredLeft, 1);
+
+  g.setFont(juce::Font(18.0f, juce::Font::bold));
+  g.drawFittedText ("www.smartelectronix.com",
+                    10, 450, 200, 50,
+                    Justification::centredLeft, 1);
+ 
+//  for(uint row=0; row<3; ++row)
+//  {
+//    int y = 40+150*row;
+//    int width = 240-10;
+//    int height = 150-10;
+//    for(uint col=0; col<3; ++col)
+//    {
+//      int x = 10 + 240*col;
+//      g.drawRect(x, y, width, height);
+//  
+//      String text(sectionNames[row*3+col]);
+//      g.drawFittedText (text,
+//                        x, y, width, 20,
+//                        Justification::centred, 1);      
+//    }
+//  }
 }
 
