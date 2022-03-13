@@ -489,10 +489,10 @@ AudioProcessorEditor* LivecutAudioProcessor::createEditor()
 */
   pEditor->addIncDec(strategy.GetTag(), 2, 0, 3); // Note: this parameter has 3 values. To do: assign automatically
   
-  pEditor->addSlider(minphraselength.GetTag(), 4, 0);
-  pEditor->addSlider(maxphraselength.GetTag(), 5, 0);
-  pEditor->addSlider(subdiv.GetTag(), 6, 0);
-  pEditor->addSlider(seed.GetTag(), 7, 0);
+  pEditor->addIncDec(minphraselength.GetTag(), 4, 0, 8); // Note: this parameter has 8 values. To do: assign automatically
+  pEditor->addIncDec(maxphraselength.GetTag(), 5, 0, 8); // Note: this parameter has 8 values. To do: assign automatically
+  pEditor->addIncDec(subdiv.GetTag(), 6, 0, 7); // Note: this parameter has 7 values. To do: assign automatically
+  pEditor->addIncDec(seed.GetTag(), 7, 0, 16); // Note: this parameter has 16 values. To do: assign automatically
   
   pEditor->addSlider(mindetune.GetTag(), 9, 0);
   pEditor->addSlider(maxdetune.GetTag(), 10, 0);
@@ -522,8 +522,8 @@ AudioProcessorEditor* LivecutAudioProcessor::createEditor()
   pEditor->addSlider(combmindelay.GetTag(), 14, 9);
   pEditor->addSlider(combmaxdelay.GetTag(), 15, 9);
 
-  pEditor->addSlider(maxrepeats.GetTag(), 2, 18);
-  pEditor->addSlider(minrepeats.GetTag(), 3, 18);
+  pEditor->addSlider(maxrepeats.GetTag(), 2, 18, 5); // Note: this parameter has 5 values. To do: assign automatically
+  pEditor->addSlider(minrepeats.GetTag(), 3, 18, 5); // Note: this parameter has 5 values. To do: assign automatically
   pEditor->addSlider(stutterchance.GetTag(), 4, 18);
   pEditor->addSlider(stutterarea.GetTag(), 5, 18);
   
