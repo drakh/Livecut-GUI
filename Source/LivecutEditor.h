@@ -36,6 +36,11 @@ public:
   void addKnob(int paramId, 
                int row, 
                int col);
+               
+  void addIncDec(int paramId, 
+                 int row, 
+                 int col,
+                 int incDecNumberOfValues);
 private:
   
   void addControl(int kind, 
