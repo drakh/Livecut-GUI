@@ -48,7 +48,7 @@ LivecutAudioProcessorEditor::LivecutAudioProcessorEditor (LivecutAudioProcessor*
   
   setSize (790+10, 480+10);
    
- 
+ /*
   {
     ParamButton *pParamButton = new ParamButton(*ownerFilter, 23);
     pParamButton->setBounds(385, 195, buttonWidth, buttonHeight);
@@ -59,7 +59,7 @@ LivecutAudioProcessorEditor::LivecutAudioProcessorEditor (LivecutAudioProcessor*
     pParamButton->setBounds(385, 345, buttonWidth, buttonHeight);
     addAndMakeVisible(pParamButton);
   }
-  /*
+  
   for(int i=2; i<20; ++i)
   {
     ParamSlider *pParamSlider = new ParamSlider(*ownerFilter, i);
@@ -92,6 +92,13 @@ void LivecutAudioProcessorEditor::addSlider(int paramId,
   addControl(kParamName, paramId, row, col, 1, 3);
   addControl(kParamSlider, paramId, row, col+2, 1, 4);
   addControl(kParamValue, paramId, row, col+6, 1, 3);
+}
+
+void LivecutAudioProcessorEditor::addButton(int paramId, 
+                                            int row, 
+                                            int col)
+{
+    addControl(kParamButton, paramId, row, col, 1, 2);
 }
 
 void LivecutAudioProcessorEditor::addKnob(int paramId, 
