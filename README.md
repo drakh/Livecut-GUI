@@ -19,8 +19,15 @@ Livecut is only a small subset of what is possible with BBCut, but as it is avai
 It is a live beat-slicer but instead of manipulating equal chunks of audio like most beatslicer do, it works on the notion of audio *cuts* whose length and number of repetition depends on the context and the cutting procedure. 
 *Cuts* are organized in *blocks* which then form a *phrase*. see Image below. And each phrase can be ended by a *roll* or *fill*.
 -------
-This is a fork of Livecut with a few updates to the code so that it will build with JUCE 6.1.5.
 
-The plugin builds with JUCE 6.1.5, but the GUI is not complete and some controls are missing. However, if your plugin host or DAW provides generic controls, you can access all the controls and parameters that way. With some export formats, plugin parameters may not be saved by plugin hosts.
+# Livecut license:
+
+This file is part of Livecut Copyright 2003 by Remy Muller.
+
+Livecut can be redistributed and/or modified under the terms of the GNU General Public License, as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+Livecut is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with AnalogDelay; if not, visit www.gnu.org/licenses or write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 This repository is kept for reference only and won't be updated.
