@@ -506,16 +506,14 @@ AudioProcessorEditor* LivecutAudioProcessor::createEditor()
   pEditor->addSlider(minpan.GetTag(), 4, 9);
   pEditor->addSlider(maxpan.GetTag(), 5, 9);
   
-  //pEditor->addButton(crusherswitch.GetTag(), 6, 12);
-  // Note: Button currently added in editor LivecutEditor.cpp
+  pEditor->addButton(crusherswitch.GetTag(), 6, 12);
   
   pEditor->addSlider(minbits.GetTag(), 7, 9);
   pEditor->addSlider(maxbits.GetTag(), 8, 9);
   pEditor->addSlider(minfreq.GetTag(), 9, 9);
   pEditor->addSlider(maxfreq.GetTag(), 10, 9);
   
-  //pEditor->addButton(combswitch.GetTag(), 11, 12);
-  // Note: Button currently added in editor LivecutEditor.cpp
+  pEditor->addButton(combswitch.GetTag(), 11, 12);
   
   pEditor->addIncDec(combtype.GetTag(), 12, 9, 2); // Note: this parameter has 2 values. To do: assign automatically
   pEditor->addSlider(combfeedback.GetTag(), 13, 9);
