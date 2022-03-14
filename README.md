@@ -1,3 +1,12 @@
+# Livecut-GUI
+
+This repository contains modified source code for the Livecut beat-slicer audio plugin, which can be used to build Livecut with JUCE 6.1.5. Livecut code originally from https://github.com/mdsp/Livecut with changes here to allow it to build and provide a fully working GUI. As the original source code didn't include a fully working GUI, some of the legacy code has been recycled to build a GUI with access to all parameters.
+
+Note that with some export formats, such as VST3, plugin parameters may not be saved by plugin hosts. Parameters should save properly with older formats, but they haven't been tested.
+
+An LV2 port can be found at https://github.com/eventual-recluse/Livecut-LV2. Parameters should be saved properly by plugin hosts with the LV2 version.
+
+
 Livecut
 =======
 
