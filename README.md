@@ -18,7 +18,7 @@ Livecut is only a small subset of what is possible with BBCut, but as it is avai
 
 It is a live beat-slicer but instead of manipulating equal chunks of audio like most beatslicer do, it works on the notion of audio *cuts* whose length and number of repetition depends on the context and the cutting procedure. 
 *Cuts* are organized in *blocks* which then form a *phrase*. see Image below. And each phrase can be ended by a *roll* or *fill*.
--------
+
 
 # Livecut license:
 
