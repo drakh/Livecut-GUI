@@ -41,6 +41,10 @@ public:
                  int row, 
                  int col,
                  int incDecNumberOfValues);
+                 
+  void addButton(int paramId, 
+                 int row, 
+                 int col);
 private:
   
   void addControl(int kind, 
