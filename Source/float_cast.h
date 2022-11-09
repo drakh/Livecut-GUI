@@ -35,17 +35,17 @@
 **		long int lrint  (double x) ;
 */
 
-#ifdef MACX
-	#define HAVE_LRINT 1
-	#define HAVE_LRINTF 1
-#endif
+// #ifdef MACX
+// 	#define HAVE_LRINT 1
+//	#define HAVE_LRINTF 1
+// #endif
 
 /*	The presence of the required functions are detected during the configure
 **	process and the values HAVE_LRINT and HAVE_LRINTF are set accordingly in
 **	the config.h file.
 */
 
-#if (HAVE_LRINT && HAVE_LRINTF)
+// #if (HAVE_LRINT && HAVE_LRINTF)
 
 	/*	These defines enable functionality introduced with the 1999 ISO C
 	**	standard. They must be defined before the inclusion of math.h to
@@ -54,57 +54,57 @@
 	**	maths library using -lm.
 	*/
 
-	#define	_ISOC9X_SOURCE	1
-	#define _ISOC99_SOURCE	1
+//	#define	_ISOC9X_SOURCE	1
+//	#define _ISOC99_SOURCE	1
 
-	#define	__USE_ISOC9X	1
-	#define	__USE_ISOC99	1
+//	#define	__USE_ISOC9X	1
+//	#define	__USE_ISOC99	1
 
-	#include	<math.h>
+//	#include	<math.h>
 	
-#elif (defined (WIN32) || defined (_WIN32))
+// #elif (defined (WIN32) || defined (_WIN32))
 
-	#include	<math.h>
+//	#include	<math.h>
 
 	//	Win32 doesn't seem to have these functions. 
 	//	Therefore implement inline versions of these functions here.
 	
 	
-	__inline long int 
-	lrint (double flt) 
-	{	int intgr;
+//	__inline long int 
+//	lrint (double flt) 
+//	{	int intgr;
 
-		_asm
-		{	fld flt
-			fistp intgr
-			} ;
+//		_asm
+//		{	fld flt
+//			fistp intgr
+//			} ;
 			
-		return intgr ;
-	} 
+//		return intgr ;
+//	} 
 	
-	__inline long int 
-	lrintf (float flt)
-	{	int intgr;
+//	__inline long int 
+//	lrintf (float flt)
+//	{	int intgr;
 
-		_asm
-		{	fld flt
-			fistp intgr
-			} ;
+//		_asm
+//		{	fld flt
+//			fistp intgr
+//			} ;
 			
-		return intgr ;
-	}
+//		return intgr ;
+//	}
 
-#else
+// #else
 
-	#warning "Don't have the functions lrint() and lrintf ()."
-	#warning "Replacing these functions with a standard C cast."
+//	#warning "Don't have the functions lrint() and lrintf ()."
+//	#warning "Replacing these functions with a standard C cast."
 
 	#include	<math.h>
 
 	#define	lrint(dbl)		((int)(dbl))
 	#define	lrintf(flt)		((int)(flt))
 
-#endif
+// #endif
 
 
 
